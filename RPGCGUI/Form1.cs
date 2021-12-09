@@ -35,7 +35,7 @@ namespace RPGCGUI
         }
         private void ChooseAtk_Click(object sender, EventArgs e)
         {
-            textBoxInterface.Text = "Vous avez choisi Clebs, l'Attaquant";
+            DisplayChoice.Text = "Vous avez choisi Clebs, l'Attaquant";
             Entite Clebs = new Entite("Clebs", 250, 35, 15, 15, entitegui.addMoveSet());
             SetValueForText1 = Clebs.Capacites.ElementAt(0).ToString();
             SetValueForText2 = Clebs.Capacites.ElementAt(1).ToString();
@@ -46,7 +46,7 @@ namespace RPGCGUI
 
         private void ChoosePolyvalent_Click(object sender, EventArgs e)
         {
-            textBoxInterface.Text = "Vous avez choisi Cristaline, le Polyvalent";
+            DisplayChoice.Text = "Vous avez choisi Cristaline, le Polyvalent";
             Entite Cristaline = new Entite("Cristaline", 300, 15, 15, 15, entitegui.addMoveSet());
             SetValueForText1 = Cristaline.Capacites.ElementAt(0).ToString();
             SetValueForText2 = Cristaline.Capacites.ElementAt(1).ToString();
@@ -57,7 +57,7 @@ namespace RPGCGUI
 
         private void ChooseTank_Click(object sender, EventArgs e)
         {
-            textBoxInterface.Text = "Vous avez choisi Clebs, l'Attaquant";
+            DisplayChoice.Text = "Vous avez choisi Clebs, l'Attaquant";
             Entite Clebs = new Entite("Clebs", 250, 35, 15, 15, entitegui.addMoveSet());
             SetValueForText1 = Clebs.Capacites.ElementAt(0).ToString();
             SetValueForText2 = Clebs.Capacites.ElementAt(1).ToString();
