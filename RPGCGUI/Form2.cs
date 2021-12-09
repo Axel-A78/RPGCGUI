@@ -54,20 +54,26 @@ namespace RPGCGUI
         {
 
         }
-
-        private void attaque2_Click(object sender, EventArgs e)
+        private void attaque1_Click_1(object sender, EventArgs e)
+        {
+            game.ButtonListenerAtk1 = true;
+            this.Close();
+        }
+        private void attaque2_Click_1(object sender, EventArgs e)
         {
             game.ButtonListenerAtk2 = true;
             this.Close();
         }
 
-        private void attaque3_Click(object sender, EventArgs e)
+        
+
+        private void attaque3_Click_1(object sender, EventArgs e)
         {
             game.ButtonListenerAtk3 = true;
             this.Close();
         }
-
-        private void attaque4_Click(object sender, EventArgs e)
+        
+        private void attaque4_Click_1(object sender, EventArgs e)
         {
             game.ButtonListenerAtk4 = true;
             this.Close();

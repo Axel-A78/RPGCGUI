@@ -29,59 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.attaque1 = new System.Windows.Forms.Button();
-            this.attaque2 = new System.Windows.Forms.Button();
-            this.attaque3 = new System.Windows.Forms.Button();
-            this.attaque4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.attaque1 = new RPGCGUI.RjButton();
+            this.attaque2 = new RPGCGUI.RjButton();
+            this.attaque3 = new RPGCGUI.RjButton();
+            this.attaque4 = new RPGCGUI.RjButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // attaque1
-            // 
-            this.attaque1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.attaque1.FlatAppearance.BorderSize = 0;
-            this.attaque1.Location = new System.Drawing.Point(2, 2);
-            this.attaque1.Margin = new System.Windows.Forms.Padding(2);
-            this.attaque1.Name = "attaque1";
-            this.attaque1.Size = new System.Drawing.Size(224, 117);
-            this.attaque1.TabIndex = 0;
-            this.attaque1.Text = "attaque1";
-            this.attaque1.UseVisualStyleBackColor = true;
-            this.attaque1.Click += new System.EventHandler(this.attaque1_Click);
-            // 
-            // attaque2
-            // 
-            this.attaque2.Location = new System.Drawing.Point(230, 2);
-            this.attaque2.Margin = new System.Windows.Forms.Padding(2);
-            this.attaque2.Name = "attaque2";
-            this.attaque2.Size = new System.Drawing.Size(224, 117);
-            this.attaque2.TabIndex = 1;
-            this.attaque2.Text = "attaque2";
-            this.attaque2.UseVisualStyleBackColor = true;
-            this.attaque2.Click += new System.EventHandler(this.attaque2_Click);
-            // 
-            // attaque3
-            // 
-            this.attaque3.Location = new System.Drawing.Point(2, 123);
-            this.attaque3.Margin = new System.Windows.Forms.Padding(2);
-            this.attaque3.Name = "attaque3";
-            this.attaque3.Size = new System.Drawing.Size(224, 117);
-            this.attaque3.TabIndex = 2;
-            this.attaque3.Text = "attaque3";
-            this.attaque3.UseVisualStyleBackColor = true;
-            this.attaque3.Click += new System.EventHandler(this.attaque3_Click);
-            // 
-            // attaque4
-            // 
-            this.attaque4.Location = new System.Drawing.Point(230, 123);
-            this.attaque4.Margin = new System.Windows.Forms.Padding(2);
-            this.attaque4.Name = "attaque4";
-            this.attaque4.Size = new System.Drawing.Size(224, 117);
-            this.attaque4.TabIndex = 3;
-            this.attaque4.Text = "attaque4";
-            this.attaque4.UseVisualStyleBackColor = true;
-            this.attaque4.Click += new System.EventHandler(this.attaque4_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -89,9 +43,9 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.attaque2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.attaque4, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.attaque1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.attaque2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.attaque3, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(-1, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -100,6 +54,78 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(456, 242);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // attaque1
+            // 
+            this.attaque1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.attaque1.BorderRadius = 20;
+            this.attaque1.BorderSize = 5;
+            this.attaque1.FlatAppearance.BorderSize = 0;
+            this.attaque1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attaque1.ForeColor = System.Drawing.Color.White;
+            this.attaque1.Location = new System.Drawing.Point(3, 3);
+            this.attaque1.Name = "attaque1";
+            this.attaque1.Size = new System.Drawing.Size(222, 115);
+            this.attaque1.TabIndex = 4;
+            this.attaque1.TextColor = System.Drawing.Color.White;
+            this.attaque1.UseVisualStyleBackColor = false;
+            this.attaque1.Click += new System.EventHandler(this.attaque1_Click_1);
+            // 
+            // attaque2
+            // 
+            this.attaque2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.attaque2.BorderRadius = 20;
+            this.attaque2.BorderSize = 5;
+            this.attaque2.FlatAppearance.BorderSize = 0;
+            this.attaque2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attaque2.ForeColor = System.Drawing.Color.White;
+            this.attaque2.Location = new System.Drawing.Point(231, 3);
+            this.attaque2.Name = "attaque2";
+            this.attaque2.Size = new System.Drawing.Size(222, 115);
+            this.attaque2.TabIndex = 5;
+            this.attaque2.TextColor = System.Drawing.Color.White;
+            this.attaque2.UseVisualStyleBackColor = false;
+            this.attaque2.Click += new System.EventHandler(this.attaque2_Click_1);
+            // 
+            // attaque3
+            // 
+            this.attaque3.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque3.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.attaque3.BorderRadius = 20;
+            this.attaque3.BorderSize = 5;
+            this.attaque3.FlatAppearance.BorderSize = 0;
+            this.attaque3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attaque3.ForeColor = System.Drawing.Color.White;
+            this.attaque3.Location = new System.Drawing.Point(3, 124);
+            this.attaque3.Name = "attaque3";
+            this.attaque3.Size = new System.Drawing.Size(222, 115);
+            this.attaque3.TabIndex = 6;
+            this.attaque3.TextColor = System.Drawing.Color.White;
+            this.attaque3.UseVisualStyleBackColor = false;
+            this.attaque3.Click += new System.EventHandler(this.attaque3_Click_1);
+            // 
+            // attaque4
+            // 
+            this.attaque4.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque4.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.attaque4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.attaque4.BorderRadius = 20;
+            this.attaque4.BorderSize = 5;
+            this.attaque4.FlatAppearance.BorderSize = 0;
+            this.attaque4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attaque4.ForeColor = System.Drawing.Color.White;
+            this.attaque4.Location = new System.Drawing.Point(231, 124);
+            this.attaque4.Name = "attaque4";
+            this.attaque4.Size = new System.Drawing.Size(222, 115);
+            this.attaque4.TabIndex = 7;
+            this.attaque4.TextColor = System.Drawing.Color.White;
+            this.attaque4.UseVisualStyleBackColor = false;
+            this.attaque4.Click += new System.EventHandler(this.attaque4_Click_1);
             // 
             // Form2
             // 
@@ -117,11 +143,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button attaque1;
-        private System.Windows.Forms.Button attaque2;
-        private System.Windows.Forms.Button attaque3;
-        private System.Windows.Forms.Button attaque4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private RjButton attaque1;
+        private RjButton attaque4;
+        private RjButton attaque2;
+        private RjButton attaque3;
     }
 }
