@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.attaque1 = new System.Windows.Forms.Button();
             this.attaque2 = new System.Windows.Forms.Button();
             this.attaque3 = new System.Windows.Forms.Button();
@@ -38,10 +39,12 @@
             // 
             // attaque1
             // 
+            this.attaque1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.attaque1.FlatAppearance.BorderSize = 0;
             this.attaque1.Location = new System.Drawing.Point(2, 2);
             this.attaque1.Margin = new System.Windows.Forms.Padding(2);
             this.attaque1.Name = "attaque1";
-            this.attaque1.Size = new System.Drawing.Size(188, 89);
+            this.attaque1.Size = new System.Drawing.Size(224, 117);
             this.attaque1.TabIndex = 0;
             this.attaque1.Text = "attaque1";
             this.attaque1.UseVisualStyleBackColor = true;
@@ -49,10 +52,10 @@
             // 
             // attaque2
             // 
-            this.attaque2.Location = new System.Drawing.Point(194, 2);
+            this.attaque2.Location = new System.Drawing.Point(230, 2);
             this.attaque2.Margin = new System.Windows.Forms.Padding(2);
             this.attaque2.Name = "attaque2";
-            this.attaque2.Size = new System.Drawing.Size(188, 89);
+            this.attaque2.Size = new System.Drawing.Size(224, 117);
             this.attaque2.TabIndex = 1;
             this.attaque2.Text = "attaque2";
             this.attaque2.UseVisualStyleBackColor = true;
@@ -60,10 +63,10 @@
             // 
             // attaque3
             // 
-            this.attaque3.Location = new System.Drawing.Point(2, 95);
+            this.attaque3.Location = new System.Drawing.Point(2, 123);
             this.attaque3.Margin = new System.Windows.Forms.Padding(2);
             this.attaque3.Name = "attaque3";
-            this.attaque3.Size = new System.Drawing.Size(188, 90);
+            this.attaque3.Size = new System.Drawing.Size(224, 117);
             this.attaque3.TabIndex = 2;
             this.attaque3.Text = "attaque3";
             this.attaque3.UseVisualStyleBackColor = true;
@@ -71,10 +74,10 @@
             // 
             // attaque4
             // 
-            this.attaque4.Location = new System.Drawing.Point(194, 95);
+            this.attaque4.Location = new System.Drawing.Point(230, 123);
             this.attaque4.Margin = new System.Windows.Forms.Padding(2);
             this.attaque4.Name = "attaque4";
-            this.attaque4.Size = new System.Drawing.Size(188, 90);
+            this.attaque4.Size = new System.Drawing.Size(224, 117);
             this.attaque4.TabIndex = 3;
             this.attaque4.Text = "attaque4";
             this.attaque4.UseVisualStyleBackColor = true;
@@ -82,6 +85,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tableLayoutPanel1.BackgroundImage")));
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -94,14 +98,14 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 187);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(456, 242);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 188);
+            this.ClientSize = new System.Drawing.Size(453, 242);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";

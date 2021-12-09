@@ -33,8 +33,7 @@ namespace RPGCGUI
         {
 
         }
-
-        private void buttonAttaquant_Click(object sender, EventArgs e)
+        private void ChooseAtk_Click(object sender, EventArgs e)
         {
             textBoxInterface.Text = "Vous avez choisi Clebs, l'Attaquant";
             Entite Clebs = new Entite("Clebs", 250, 35, 15, 15, entitegui.addMoveSet());
@@ -45,16 +44,26 @@ namespace RPGCGUI
             game.Play(Clebs);
         }
 
-        private void buttonTank_Click(object sender, EventArgs e)
-        {
-            textBoxInterface.Text = "Vous avez choisi Astaroth, le Tank";
-            game.Play(new Entite("Astaroth", 350, 20, 30, 10, entitegui.addMoveSet()));
-        }
-
-        private void buttonPolyvalent_Click(object sender, EventArgs e)
+        private void ChoosePolyvalent_Click(object sender, EventArgs e)
         {
             textBoxInterface.Text = "Vous avez choisi Cristaline, le Polyvalent";
-            game.Play(new Entite("Cristaline", 300, 15, 15, 15, entitegui.addMoveSet()));
+            Entite Cristaline = new Entite("Cristaline", 300, 15, 15, 15, entitegui.addMoveSet());
+            SetValueForText1 = Cristaline.Capacites.ElementAt(0).ToString();
+            SetValueForText2 = Cristaline.Capacites.ElementAt(1).ToString();
+            SetValueForText3 = Cristaline.Capacites.ElementAt(2).ToString();
+            SetValueForText4 = Cristaline.Capacites.ElementAt(3).ToString();
+            game.Play(Cristaline);
+        }
+
+        private void ChooseTank_Click(object sender, EventArgs e)
+        {
+            textBoxInterface.Text = "Vous avez choisi Clebs, l'Attaquant";
+            Entite Clebs = new Entite("Clebs", 250, 35, 15, 15, entitegui.addMoveSet());
+            SetValueForText1 = Clebs.Capacites.ElementAt(0).ToString();
+            SetValueForText2 = Clebs.Capacites.ElementAt(1).ToString();
+            SetValueForText3 = Clebs.Capacites.ElementAt(2).ToString();
+            SetValueForText4 = Clebs.Capacites.ElementAt(3).ToString();
+            game.Play(Clebs);
         }
     }
 }

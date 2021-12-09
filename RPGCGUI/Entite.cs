@@ -57,6 +57,22 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 MessageBox.Show(def.nom + " est mort !");
             }
         }
+
+        public void degatsInfligesMonstre(Entite atk, Entite def)
+        {
+            double degatsDec = atk.attaque * 80 / def.defense - (def.vitesse * (25 / 100));
+            Math.Round(degatsDec, 2);
+            int degats = (int)degatsDec;
+            def.LoseHP(degats);
+            MessageBox.Show(atk.nom + "(" + atk.pointDeVie + ")" + "attaque : " + def.nom + "\r\n" +
+                            def.nom + " a perdu " + degats + " points de vie. \r\n" +
+                            "Il reste : " + def.pointDeVie + " points de vie à " + def.nom);
+            if (def.estMort)
+            {
+                Console.WriteLine(def.nom + " est mort !");
+            }
+        }
+
         protected void LoseHP(int pointDeVie)
         {
             this.pointDeVie -= pointDeVie;
@@ -80,6 +96,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         }
 
         private static Random rng = new Random();
+
+        //Liste aléatoire de 4 attaques
         public List<Capacite> addMoveSet()
         {
             List<Capacite> moveset = new List<Capacite>();
@@ -87,9 +105,9 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             capacites.Add(new Capacite(5, 90, "Avan Strash"));
             capacites.Add(new Capacite(15, 40, "Slash Mer"));
             capacites.Add(new Capacite(20, 20, "Slash Terre"));
-            capacites.Add(new Capacite(20, 0, "AtkPlus"));
-            capacites.Add(new Capacite(40, 0, "Miaule"));
-            capacites.Add(new Capacite(20, 0, "En garde"));
+            capacites.Add(new Capacite(20, 0, "AtkPlus",1));
+            capacites.Add(new Capacite(40, 0, "Miaule",4));
+            capacites.Add(new Capacite(20, 0, "En garde",5));
             capacites.Add(new Capacite(20, 0, "Cavale"));
             var shuffledMoveSet = capacites.OrderBy(a => rng.Next()).ToList();
 
@@ -99,10 +117,79 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 {
                     Capacite c = shuffledMoveSet[i];
                     moveset.Add(c);
-                    //Console.WriteLine($"{c} ");
                 }
             }
             return moveset;
         }
+
+        public int ChgtStat(Entite atk, Entite def, int id)
+        {
+            //Augmentation de la stat Attaque pour l'attaquant
+            if (atk.Capacites.ElementAt(id).IdStat == 1)
+            {
+                atk.Attaque += atk.Attaque*1/2;
+                MessageBox.Show("L'attaque de  " + atk.nom + $" augmente ! { atk.Attaque}");
+                return atk.Attaque;
+            }
+
+            //Diminution de la stat Attaque pour l'attaquant
+            if (atk.Capacites.ElementAt(id).IdStat == 2)
+            {
+                atk.Attaque -= atk.Attaque * 50 / 100;
+                MessageBox.Show("l'attaque de " + atk.nom + $" diminue !");
+                return atk.Attaque;
+            }
+
+            //Augmentation de la stat Attaque pour le défenseur
+            if (atk.Capacites.ElementAt(id).IdStat == 3)
+            {
+                def.Attaque +=def.Attaque * 50 / 100;
+                MessageBox.Show("l'attaque de " + def.nom + $" augmente !");
+                return atk.Attaque;
+            }
+
+            //Diminution de la stat Attaque pour le défenseur
+            if (atk.Capacites.ElementAt(id).IdStat == 4)
+            {
+                def.Attaque -= def.Attaque * 50 / 100;
+                MessageBox.Show("l'attaque de " + def.nom + $" diminue ! {def.Attaque}");
+                return def.Attaque;
+            }
+
+            //Augmentation de la stat Défense pour l'attaquant
+            if (atk.Capacites.ElementAt(id).IdStat == 5)
+            {
+                atk.Defense +=  atk.Defense * 50 / 100;
+                MessageBox.Show("la défense de " + atk.nom + $" augmente ! {atk.Defense}");
+                return atk.Defense;
+            }
+
+            //Diminution de la stat Défense pour l'attaquant
+            if (atk.Capacites.ElementAt(id).IdStat == 6)
+            {
+                atk.Defense -= atk.Defense * 50 / 100;
+                MessageBox.Show("la défense de " + atk.nom + $" diminue !");
+                return atk.Defense;
+            }
+
+            //Augmentation de la stat Defense pour le défenseur
+            if (atk.Capacites.ElementAt(id).IdStat == 7)
+            {
+                def.Defense += def.Defense * 50 / 100;
+                MessageBox.Show("la défense de " + def.nom + $" diminue !");
+                return atk.Defense;
+            }
+
+            //Diminution de la stat Défense pour le défenseur
+            if (atk.Capacites.ElementAt(id).IdStat == 8)
+            {
+                def.Defense -= def.Defense * 50 / 100;
+                MessageBox.Show("la défense de " + def.nom + $" diminue !");
+                return atk.Defense;
+            }
+            return atk.attaque;
+
+        }
+
     }
 }

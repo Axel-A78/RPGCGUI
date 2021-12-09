@@ -47,6 +47,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             while (!Dino.EstMort())
             {
                 // Tour monstre
+                Dino.degatsInfligesMonstre(Dino, monEntite);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine();
                 
@@ -77,88 +78,106 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                     {
                         //MessageBox.Show($"{ButtonListenerAtk1} atk 1 true");
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
-                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(0)}");
-                        monEntite.Capacites.ElementAt(0).diminutionPP();
-                        monEntite.degatsInfliges(monEntite, Dino, 0);
+                        if (monEntite.Capacites.ElementAt(0).IdStat != 0)
+                        {
+                            monEntite.ChgtStat(monEntite, Dino, 0);
+                            monEntite.Capacites.ElementAt(0).diminutionPP();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(0)}");
+                            monEntite.Capacites.ElementAt(0).diminutionPP();
+                            monEntite.degatsInfliges(monEntite, Dino, 0);
+                        }
                         formAtk.Close();
-
                     }
 
                     if (buttonListenerAtk2 == true)
                     {
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
-                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(1)}");
-                        monEntite.Capacites.ElementAt(1).diminutionPP();
-                        monEntite.degatsInfliges(monEntite, Dino, 0);
+                        if (monEntite.Capacites.ElementAt(1).IdStat != 0)
+                        {
+                            monEntite.ChgtStat(monEntite, Dino, 1);
+                            monEntite.Capacites.ElementAt(1).diminutionPP();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(1)}");
+                            monEntite.Capacites.ElementAt(1).diminutionPP();
+                            monEntite.degatsInfliges(monEntite, Dino, 1);
+                        }
+
                         formAtk.Close();
-
-
                     }
 
                     if (buttonListenerAtk3 == true)
                     {
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
-                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(2)}");
-                        monEntite.Capacites.ElementAt(2).diminutionPP();
-                        monEntite.degatsInfliges(monEntite, Dino, 0);
+                        
+
+                        if (monEntite.Capacites.ElementAt(2).IdStat != 0)
+                        {
+                            monEntite.ChgtStat(monEntite, Dino, 2);
+                            monEntite.Capacites.ElementAt(2).diminutionPP();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(2)}");
+                            monEntite.Capacites.ElementAt(2).diminutionPP();
+                            monEntite.degatsInfliges(monEntite, Dino, 2);
+                        }
+
                         formAtk.Close();
-
-
                     }
 
                     if (buttonListenerAtk4 == true)
                     {
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
-                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(3)}");
-                        monEntite.Capacites.ElementAt(3).diminutionPP();
-                        monEntite.degatsInfliges(monEntite, Dino, 0);
+                        if (monEntite.Capacites.ElementAt(3).IdStat != 0)
+                        {
+                            monEntite.ChgtStat(monEntite, Dino, 3);
+                            monEntite.Capacites.ElementAt(3).diminutionPP();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(3)}");
+                            monEntite.Capacites.ElementAt(3).diminutionPP();
+                            monEntite.degatsInfliges(monEntite, Dino, 3);
+                        }
                         formAtk.Close();
-
-
                     }
-
-                    
-
                 }
-
                 buttonListenerAtk1 = false;
                 buttonListenerAtk2 = false;
                 buttonListenerAtk3 = false;
                 buttonListenerAtk4 = false;
-
-
-
-                // monEntite.degatsInfliges(monEntite, Dino);
-
-
-
             }
 
             if (victoire)
             {  
                 MessageBox.Show("+ 1.000.000 de PO, à quoi sert ton million si tu prend perpèt' ?");
+                Application.Exit();
 
-              /*  while (!suivant)
-                {
-                    Console.WriteLine("Salle suivant ? (O/N)");
-                    String saisie = Console.ReadLine().ToUpper();
-                    if (saisie == "O")
-                    {
-                        suivant = true;
-                        Play(monEntite);
-                    }
-                    else if (saisie == "N")
-                    {
-                        Environment.Exit(0);
-                    }
-                }
-              */
+                /*  while (!suivant)
+                  {
+                      Console.WriteLine("Salle suivant ? (O/N)");
+                      String saisie = Console.ReadLine().ToUpper();
+                      if (saisie == "O")
+                      {
+                          suivant = true;
+                          Play(monEntite);
+                      }
+                      else if (saisie == "N")
+                      {
+                          Environment.Exit(0);
+                      }
+                  }
+                */
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine();
-                Console.WriteLine("C'est perdu...");
+                MessageBox.Show("C'est perdu...");
+                Application.Exit();
                 
             }
         }

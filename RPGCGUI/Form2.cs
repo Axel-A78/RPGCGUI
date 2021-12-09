@@ -24,10 +24,18 @@ namespace RPGCGUI
             InitializeComponent();
             this.game = game;
             attaque1.Text = Form1.SetValueForText1;
+            attaque1.Font = new Font(attaque1.Font.FontFamily, 20);
+
             attaque2.Text = Form1.SetValueForText2;
+            attaque2.Font = new Font(attaque2.Font.FontFamily, 20);
+
             attaque3.Text = Form1.SetValueForText3;
+            attaque3.Font = new Font(attaque3.Font.FontFamily, 20);
+
             attaque4.Text = Form1.SetValueForText4;
-           // attaque1.Text = $"{game.Atk1}";
+            attaque4.Font = new Font(attaque4.Font.FontFamily, 20);
+
+            // attaque1.Text = $"{game.Atk1}";
             //MessageBox.Show($"{game.ButtonListenerAtk1} ouverture form2");
         }
 

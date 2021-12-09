@@ -10,10 +10,12 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         private int pointDePouvoir;
         private int pointDeDegat;
         private String nomCapacite;
+        private int idStat;
         //Getters Setters
         public String NomCapacite { get => nomCapacite; set => nomCapacite = value; }
         public int PointDePouvoir { get => pointDePouvoir; set => pointDePouvoir = value; }
         public int PointDeDegat { get => pointDeDegat; set => pointDeDegat = value; }
+        public int IdStat { get => idStat; set => idStat = value; }
 
         //Constructeurs
         public Capacite()
@@ -27,6 +29,14 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             this.nomCapacite = nomCapacite;
         }
 
+        public Capacite(int pointDePouvoir, int pointDeDegat, string nomCapacite, int IdStat)
+        {
+            this.pointDePouvoir = pointDePouvoir;
+            this.pointDeDegat = pointDeDegat;
+            this.nomCapacite = nomCapacite;
+            this.IdStat = IdStat;
+        }
+
         //Methodes
         public void diminutionPP()
         {
@@ -34,7 +44,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         }
         public override string ToString()
         {
-            return $"{nomCapacite} => {pointDePouvoir}PP";
+            return $"{nomCapacite} => {pointDePouvoir}PP "; //=> {pointDePouvoir}PP
         }
     }
 }
