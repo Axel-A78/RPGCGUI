@@ -9,18 +9,12 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 {
     public class Game
     {
-        //static List<Capacite> listeCapacites = new List<Capacite>();
-        //static List<Capacite> ListeCapacites { get => listeCapacites; set => listeCapacites = value; }
-
+        
         bool buttonListenerAtk1 = false;
         bool buttonListenerAtk2 = false;
         bool buttonListenerAtk3 = false;
         bool buttonListenerAtk4 = false;
-        /* String atk1 = " ";
-        String atk2 = " ";
-        String atk3 = " ";
-        String atk4 = " ";
-        */
+       
         public bool ButtonListenerAtk1 { get => buttonListenerAtk1; set => buttonListenerAtk1 = value; }
         public bool ButtonListenerAtk2 { get => buttonListenerAtk2; set => buttonListenerAtk2 = value; }
         public bool ButtonListenerAtk3 { get => buttonListenerAtk3; set => buttonListenerAtk3 = value; }
@@ -61,7 +55,6 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 //Tour du Personnage
                MessageBox.Show(String.Join(Environment.NewLine, monEntite));
 
-                //MessageBox.Show($"{ButtonListenerAtk1} game");
                 Form formAtk = new Form2(this);
 
 
@@ -69,15 +62,9 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 {
                     formAtk.ShowDialog();
                     formAtk.Close();
-                    //MessageBox.Show($"{ButtonListenerAtk1} dans le while");
-                    
-
-
 
                     if (buttonListenerAtk1 == true)
                     {
-                        //MessageBox.Show($"{ButtonListenerAtk1} atk 1 true");
-                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         if (monEntite.Capacites.ElementAt(0).IdStat != 0)
                         {
                             monEntite.ChgtStat(monEntite, Dino, 0);
@@ -94,7 +81,6 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 
                     if (buttonListenerAtk2 == true)
                     {
-                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         if (monEntite.Capacites.ElementAt(1).IdStat != 0)
                         {
                             monEntite.ChgtStat(monEntite, Dino, 1);
@@ -112,9 +98,6 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 
                     if (buttonListenerAtk3 == true)
                     {
-                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
-                        
-
                         if (monEntite.Capacites.ElementAt(2).IdStat != 0)
                         {
                             monEntite.ChgtStat(monEntite, Dino, 2);
@@ -132,7 +115,6 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 
                     if (buttonListenerAtk4 == true)
                     {
-                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         if (monEntite.Capacites.ElementAt(3).IdStat != 0)
                         {
                             monEntite.ChgtStat(monEntite, Dino, 3);

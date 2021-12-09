@@ -35,8 +35,6 @@ namespace RPGCGUI
             attaque4.Text = Form1.SetValueForText4;
             attaque4.Font = new Font(attaque4.Font.FontFamily, 20);
 
-            // attaque1.Text = $"{game.Atk1}";
-            //MessageBox.Show($"{game.ButtonListenerAtk1} ouverture form2");
         }
 
         public void attaque1_Click(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         }
         public override string ToString()
         {
-            return $"{nomCapacite} => {pointDePouvoir}PP "; //=> {pointDePouvoir}PP
+            return $"{nomCapacite} => {pointDePouvoir}PP ";
         }
     }
 }
