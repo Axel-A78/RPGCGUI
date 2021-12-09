@@ -17,15 +17,30 @@ namespace RPGCGUI
 
         public Entite entitegui = new Entite();
 
-        Game play = new Game();
-        public Form2()
+        private Game game;
+
+        public Form2(Game game)
         {
             InitializeComponent();
+            this.game = game;
+            //MessageBox.Show($"{game.ButtonListenerAtk1} ouverture form2");
         }
 
         public void attaque1_Click(object sender, EventArgs e)
         {
-            
+           game.ButtonListenerAtk1 = true;
+           this.Close();
+           //MessageBox.Show($"{game.ButtonListenerAtk1} Click");
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
 
         }
     }

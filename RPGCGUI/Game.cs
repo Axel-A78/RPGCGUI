@@ -11,22 +11,24 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
     {
         //static List<Capacite> listeCapacites = new List<Capacite>();
         //static List<Capacite> ListeCapacites { get => listeCapacites; set => listeCapacites = value; }
-        
 
-        
+        bool buttonListenerAtk1 = false;
+        bool buttonListenerAtk2 = false;
+        bool buttonListenerAtk3 = false;
+        bool buttonListenerAtk4 = false;
+
+        public bool ButtonListenerAtk1 { get => buttonListenerAtk1; set => buttonListenerAtk1 = value; }
+        public bool ButtonListenerAtk2 { get => buttonListenerAtk2; set => buttonListenerAtk2 = value; }
+        public bool ButtonListenerAtk3 { get => buttonListenerAtk3; set => buttonListenerAtk3 = value; }
+        public bool ButtonListenerAtk4 { get => buttonListenerAtk4; set => buttonListenerAtk4 = value; }
+
         public void Play(Entite monEntite)
         {
 
-            //Entite e = new Entite();
             Monstre m = new Monstre();
             Monstre Dino = new Monstre("Dino", 500, 10, 20, 5, m.addMoveSet(), "Dinosaure grrrrr !!");
             bool victoire = true;
             bool suivant = false;
-            Form formAtk = new Form2();
-            bool buttonListenerAtk1 = false;
-            bool buttonListenerAtk2 = false;
-            bool buttonListenerAtk3 = false;
-            bool buttonListenerAtk4 = false;
 
             while (!Dino.EstMort())
             {
@@ -44,16 +46,24 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 
                 //Tour du Personnage
                MessageBox.Show(String.Join(Environment.NewLine, monEntite));
-               formAtk.ShowDialog();
-               
+
+                //MessageBox.Show($"{ButtonListenerAtk1} game");
+                Form formAtk = new Form2(this);
+
 
                 while (buttonListenerAtk1 == false && buttonListenerAtk2 == false && buttonListenerAtk3 == false && buttonListenerAtk4 == false)
                 {
+                    formAtk.ShowDialog();
+                    formAtk.Close();
+                    //MessageBox.Show($"{ButtonListenerAtk1} dans le while");
                     
-                    
+
+
 
                     if (buttonListenerAtk1 == true)
                     {
+                        //MessageBox.Show($"{ButtonListenerAtk1} atk 1 true");
+
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         monEntite.Capacites.ElementAt(0).diminutionPP();
                         monEntite.degatsInfliges(monEntite, Dino, 0);
@@ -109,11 +119,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             }
 
             if (victoire)
-            {
-               
+            {  
                 MessageBox.Show("+ 1.000.000 de PO, à quoi sert ton million si tu prend perpèt' ?");
-
-               
 
                 while (!suivant)
                 {

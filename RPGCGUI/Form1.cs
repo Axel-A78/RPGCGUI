@@ -15,7 +15,7 @@ namespace RPGCGUI
     {
 
 
-        private Game game;
+        public Game game;
         public Entite entitegui = new Entite();
         Monstre Dino = new Monstre();
         public Form1()
@@ -36,8 +36,6 @@ namespace RPGCGUI
             game.Play(new Entite("Clebs", 250, 35, 15, 15, entitegui.addMoveSet()));
         }
 
-
-
         private void buttonTank_Click(object sender, EventArgs e)
         {
             textBoxInterface.Text = "Vous avez choisi Astaroth, le Tank";
@@ -49,15 +47,5 @@ namespace RPGCGUI
             textBoxInterface.Text = "Vous avez choisi Cristaline, le Polyvalent";
             game.Play(new Entite("Cristaline", 300, 15, 15, 15, entitegui.addMoveSet()));
         }
-
-        /*private void attaque1_Click(object sender, EventArgs e)
-        {
-            textBoxInterface.Text = ($"{entitegui.Nom} attaque {entitegui.Capacites.ElementAt(0)}");
-            entitegui.Capacites.ElementAt(0).diminutionPP();
-            entitegui.degatsInfliges(entitegui, Dino, 0);
-            Console.WriteLine();
-
-            textBoxInterface.Text = ($"{entitegui.Capacites.Select(c => c.NomCapacite).ToList()}");
-        }*/
     }
 }
