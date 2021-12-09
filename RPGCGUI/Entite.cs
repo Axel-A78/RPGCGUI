@@ -87,13 +87,21 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 
         public override string ToString()
         {
-            return $"Nom : {nom}, PV : {pointDeVie}, Capacités : {String.Join(" | ", capacites)} | ";
+            return $"| Nom : {nom} | PV : {pointDeVie} |\r\n Capacités : \r\n {String.Join(" \r\n ", capacites)}  ";
         }
 
         private static Random rng = new Random();
         public List<Capacite> addMoveSet()
         {
             List<Capacite> moveset = new List<Capacite>();
+            capacites.Add(new Capacite(10, 50, "Slash cieux"));
+            capacites.Add(new Capacite(5, 90, "Avan Strash"));
+            capacites.Add(new Capacite(15, 40, "Slash Mer"));
+            capacites.Add(new Capacite(20, 20, "Slash Terre"));
+            capacites.Add(new Capacite(20, 0, "AtkPlus"));
+            capacites.Add(new Capacite(40, 0, "Miaule"));
+            capacites.Add(new Capacite(20, 0, "En garde"));
+            capacites.Add(new Capacite(20, 0, "Cavale"));
             var shuffledMoveSet = capacites.OrderBy(a => rng.Next()).ToList();
 
             for (int i = 0; i < Capacites.Count; i++)

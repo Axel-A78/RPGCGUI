@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RPGCGUI // Note: actual namespace depends on the project name.
 {
@@ -10,44 +11,22 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
     {
         //static List<Capacite> listeCapacites = new List<Capacite>();
         //static List<Capacite> ListeCapacites { get => listeCapacites; set => listeCapacites = value; }
-        public Game()
-        {
+        
 
-            Menu();
-
-            Entite e = new Entite();
-
-            /*   var capacites = e.Capacites;
-               // List<Capacite> capacites = new List<Capacite>();
-               capacites.Add(new Capacite(10, 50, "Slash cieux"));
-               capacites.Add(new Capacite(5, 90, "Avan Strash"));
-               capacites.Add(new Capacite(15, 40, "Slash Mer"));
-               capacites.Add(new Capacite(20, 20, "Slash Terre"));
-               capacites.Add(new Capacite(20, 20, "Slash Mer"));
-               capacites.Add(new Capacite(40, 0, "Miaule"));
-               capacites.Add(new Capacite(20, 0, "En garde"));
-               capacites.Add(new Capacite(20, 0, "Cavale"));
-
-                    List<Entite> entites = new List<Entite>();
-                    entites.Add(new Entite("Astaroth", 350, 20, 30, 10, e.addMoveSet()));
-                    entites.Add(new Entite("Clebs", 350, 20, 30, 10, e.addMoveSet()));
-
-                    Console.Write(String.Join(Environment.NewLine, entites));
-                   */
-        }
-        //Methodes
-
-        static void chooseSkill()
-        {
-
-        }
+        
         public void Play(Entite monEntite)
         {
+
             //Entite e = new Entite();
             Monstre m = new Monstre();
             Monstre Dino = new Monstre("Dino", 500, 10, 20, 5, m.addMoveSet(), "Dinosaure grrrrr !!");
             bool victoire = true;
             bool suivant = false;
+            Form formAtk = new Form2();
+            bool buttonListenerAtk1 = false;
+            bool buttonListenerAtk2 = false;
+            bool buttonListenerAtk3 = false;
+            bool buttonListenerAtk4 = false;
 
             while (!Dino.EstMort())
             {
@@ -55,7 +34,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 Console.ForegroundColor = ConsoleColor.Red;
                 Dino.degatsInfligesMonstre(Dino, monEntite);
                 Console.WriteLine();
-                //Console.ReadKey(true);
+                
 
                 if (monEntite.EstMort())
                 {
@@ -64,59 +43,77 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 }
 
                 //Tour du Personnage
-                Console.ForegroundColor = ConsoleColor.Blue;
+               MessageBox.Show(String.Join(Environment.NewLine, monEntite));
+               formAtk.ShowDialog();
+               
 
-                Console.WriteLine(String.Join(Environment.NewLine, monEntite));
-                Console.WriteLine("Selectionnez l'attaque ! (1,2,3,4)");
-
-                switch (Console.ReadLine())
+                while (buttonListenerAtk1 == false && buttonListenerAtk2 == false && buttonListenerAtk3 == false && buttonListenerAtk4 == false)
                 {
-                    case "1":
-                        Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
+                    
+                    
+
+                    if (buttonListenerAtk1 == true)
+                    {
+                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         monEntite.Capacites.ElementAt(0).diminutionPP();
                         monEntite.degatsInfliges(monEntite, Dino, 0);
-                        Console.WriteLine();
-                        break;
+                        formAtk.Close();
 
-                    case "2":
-                        Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(1)}");
+                    }
+
+                    if (buttonListenerAtk2 == true)
+                    {
+                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         monEntite.Capacites.ElementAt(1).diminutionPP();
-                        monEntite.degatsInfliges(monEntite, Dino, 1);
+                        monEntite.degatsInfliges(monEntite, Dino, 0);
+                        formAtk.Close();
 
-                        Console.WriteLine();
-                        break;
 
-                    case "3":
-                        Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(2)}");
+                    }
+
+                    if (buttonListenerAtk3 == true)
+                    {
+                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         monEntite.Capacites.ElementAt(2).diminutionPP();
-                        monEntite.degatsInfliges(monEntite, Dino, 2);
+                        monEntite.degatsInfliges(monEntite, Dino, 0);
+                        formAtk.Close();
 
-                        Console.WriteLine();
-                        break;
 
-                    case "4":
-                        Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(3)}");
+                    }
+
+                    if (buttonListenerAtk4 == true)
+                    {
+                        //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
                         monEntite.Capacites.ElementAt(3).diminutionPP();
-                        monEntite.degatsInfliges(monEntite, Dino, 3);
+                        monEntite.degatsInfliges(monEntite, Dino, 0);
+                        formAtk.Close();
 
-                        Console.WriteLine();
-                        break;
+
+                    }
+
+                    
+
                 }
 
+                buttonListenerAtk1 = false;
+                buttonListenerAtk2 = false;
+                buttonListenerAtk3 = false;
+                buttonListenerAtk4 = false;
+
+
+
                 // monEntite.degatsInfliges(monEntite, Dino);
-                Console.WriteLine();
-                //Console.ReadKey(true);
+
+
 
             }
 
             if (victoire)
             {
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine();
-                Console.WriteLine("+ 1.000.000 de PO, à quoi sert ton million si tu prend perpèt' ?");
+               
+                MessageBox.Show("+ 1.000.000 de PO, à quoi sert ton million si tu prend perpèt' ?");
 
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine();
+               
 
                 while (!suivant)
                 {
@@ -138,55 +135,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine();
                 Console.WriteLine("C'est perdu...");
-                //Console.ReadKey();
+                
             }
-        }
-        static void Menu()
-        {
-            Entite e = new Entite();
-            var capacites = e.Capacites;
-
-            capacites.Add(new Capacite(10, 50, "Slash cieux"));
-            capacites.Add(new Capacite(5, 90, "Avan Strash"));
-            capacites.Add(new Capacite(15, 40, "Slash Mer"));
-            capacites.Add(new Capacite(20, 20, "Slash Terre"));
-            capacites.Add(new Capacite(20, 0, "AtkPlus"));
-            capacites.Add(new Capacite(40, 0, "Miaule"));
-            capacites.Add(new Capacite(20, 0, "En garde"));
-            capacites.Add(new Capacite(20, 0, "Cavale"));
-
-            Console.WriteLine("Le jeu");
-            Console.WriteLine();
-            Console.WriteLine("Choisis ton personnage");
-            Console.WriteLine("1. Tank");
-            Console.WriteLine("2. Attaquant");
-            Console.WriteLine("3. Polyvalent");
-            Console.WriteLine("4. Quitter");
-            Console.WriteLine();
-
-            /*switch (Console.ReadLine())
-            {
-                case "1":
-                    Console.WriteLine("Vous avez choisi Astaroth, le Tank");
-                    Console.WriteLine();
-                    Play(new Entite("Astaroth", 350, 20, 30, 10, e.addMoveSet()));
-                    break;
-
-                case "2":
-                    Console.WriteLine("Vous avez choisi Clebs, l'Attaquant");
-                    Console.WriteLine();
-                    Play(new Entite("Clebs", 250, 35, 15, 15, e.addMoveSet()));
-                    break;
-
-                case "3":
-                    Console.WriteLine("Vous avez choisi Cristaline, le Polyvalent");
-                    Console.WriteLine();
-                    Play(new Entite("Cristaline", 300, 15, 15, 15, e.addMoveSet()));
-                    break;
-
-                case "4":
-                    break;
-            }*/
         }
     }
 }
