@@ -39,7 +39,7 @@
             // attaque1
             // 
             this.attaque1.Location = new System.Drawing.Point(2, 2);
-            this.attaque1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attaque1.Margin = new System.Windows.Forms.Padding(2);
             this.attaque1.Name = "attaque1";
             this.attaque1.Size = new System.Drawing.Size(188, 89);
             this.attaque1.TabIndex = 0;
@@ -50,32 +50,35 @@
             // attaque2
             // 
             this.attaque2.Location = new System.Drawing.Point(194, 2);
-            this.attaque2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attaque2.Margin = new System.Windows.Forms.Padding(2);
             this.attaque2.Name = "attaque2";
             this.attaque2.Size = new System.Drawing.Size(188, 89);
             this.attaque2.TabIndex = 1;
             this.attaque2.Text = "attaque2";
             this.attaque2.UseVisualStyleBackColor = true;
+            this.attaque2.Click += new System.EventHandler(this.attaque2_Click);
             // 
             // attaque3
             // 
             this.attaque3.Location = new System.Drawing.Point(2, 95);
-            this.attaque3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attaque3.Margin = new System.Windows.Forms.Padding(2);
             this.attaque3.Name = "attaque3";
             this.attaque3.Size = new System.Drawing.Size(188, 90);
             this.attaque3.TabIndex = 2;
             this.attaque3.Text = "attaque3";
             this.attaque3.UseVisualStyleBackColor = true;
+            this.attaque3.Click += new System.EventHandler(this.attaque3_Click);
             // 
             // attaque4
             // 
             this.attaque4.Location = new System.Drawing.Point(194, 95);
-            this.attaque4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attaque4.Margin = new System.Windows.Forms.Padding(2);
             this.attaque4.Name = "attaque4";
             this.attaque4.Size = new System.Drawing.Size(188, 90);
             this.attaque4.TabIndex = 3;
             this.attaque4.Text = "attaque4";
             this.attaque4.UseVisualStyleBackColor = true;
+            this.attaque4.Click += new System.EventHandler(this.attaque4_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -100,7 +103,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 188);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);

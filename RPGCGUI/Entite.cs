@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RPGCGUI // Note: actual namespace depends on the project name.
 {
@@ -45,29 +48,15 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             Math.Round(degatsDec, 2);
             int degats = (int)degatsDec;
             def.LoseHP(degats);
-            Console.WriteLine(atk.nom + "(" + atk.pointDeVie + ")" + "attaque : " + def.nom);
-            Console.WriteLine(def.nom + " a perdu " + degats + " points de vie.");
-            Console.WriteLine("Il reste : " + def.pointDeVie + " points de vie à " + def.nom);
+           MessageBox.Show(atk.nom + "(" + atk.pointDeVie + ")" + "attaque : " + def.nom + "\r\n" +
+                            def.nom + " a perdu " + degats + " points de vie. \r\n " +
+                            "Il reste : " + def.pointDeVie + " points de vie à " + def.nom);
+           
             if (def.estMort)
             {
-                Console.WriteLine(def.nom + " est mort !");
+                MessageBox.Show(def.nom + " est mort !");
             }
         }
-        public void degatsInfligesMonstre(Entite atk, Entite def)
-        {
-            double degatsDec = atk.attaque * 80 / def.defense - (def.vitesse * (25 / 100));
-            Math.Round(degatsDec, 2);
-            int degats = (int)degatsDec;
-            def.LoseHP(degats);
-            Console.WriteLine(atk.nom + "(" + atk.pointDeVie + ")" + "attaque : " + def.nom);
-            Console.WriteLine(def.nom + " a perdu " + degats + " points de vie.");
-            Console.WriteLine("Il reste : " + def.pointDeVie + " points de vie à " + def.nom);
-            if (def.estMort)
-            {
-                Console.WriteLine(def.nom + " est mort !");
-            }
-        }
-
         protected void LoseHP(int pointDeVie)
         {
             this.pointDeVie -= pointDeVie;

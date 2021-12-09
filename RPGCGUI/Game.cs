@@ -16,25 +16,38 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         bool buttonListenerAtk2 = false;
         bool buttonListenerAtk3 = false;
         bool buttonListenerAtk4 = false;
-
+        /* String atk1 = " ";
+        String atk2 = " ";
+        String atk3 = " ";
+        String atk4 = " ";
+        */
         public bool ButtonListenerAtk1 { get => buttonListenerAtk1; set => buttonListenerAtk1 = value; }
         public bool ButtonListenerAtk2 { get => buttonListenerAtk2; set => buttonListenerAtk2 = value; }
         public bool ButtonListenerAtk3 { get => buttonListenerAtk3; set => buttonListenerAtk3 = value; }
         public bool ButtonListenerAtk4 { get => buttonListenerAtk4; set => buttonListenerAtk4 = value; }
+        /*
+        public String Atk1 { get => atk1; set => atk1 = value; }
+        public String Atk2 { get => atk2; set => atk2 = value; }
+        public String Atk3 { get => atk3; set => atk3 = value; }
+        public String Atk4 { get => atk4; set => atk4 = value; }
+        */
 
         public void Play(Entite monEntite)
         {
 
             Monstre m = new Monstre();
             Monstre Dino = new Monstre("Dino", 500, 10, 20, 5, m.addMoveSet(), "Dinosaure grrrrr !!");
+
             bool victoire = true;
             bool suivant = false;
+
+            
+
 
             while (!Dino.EstMort())
             {
                 // Tour monstre
                 Console.ForegroundColor = ConsoleColor.Red;
-                Dino.degatsInfligesMonstre(Dino, monEntite);
                 Console.WriteLine();
                 
 
@@ -63,8 +76,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                     if (buttonListenerAtk1 == true)
                     {
                         //MessageBox.Show($"{ButtonListenerAtk1} atk 1 true");
-
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
+                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(0)}");
                         monEntite.Capacites.ElementAt(0).diminutionPP();
                         monEntite.degatsInfliges(monEntite, Dino, 0);
                         formAtk.Close();
@@ -74,6 +87,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                     if (buttonListenerAtk2 == true)
                     {
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
+                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(1)}");
                         monEntite.Capacites.ElementAt(1).diminutionPP();
                         monEntite.degatsInfliges(monEntite, Dino, 0);
                         formAtk.Close();
@@ -84,6 +98,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                     if (buttonListenerAtk3 == true)
                     {
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
+                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(2)}");
                         monEntite.Capacites.ElementAt(2).diminutionPP();
                         monEntite.degatsInfliges(monEntite, Dino, 0);
                         formAtk.Close();
@@ -94,6 +109,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                     if (buttonListenerAtk4 == true)
                     {
                         //Console.WriteLine($"{monEntite.Nom} attaque {monEntite.Capacites.ElementAt(0)}");
+                        MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(3)}");
                         monEntite.Capacites.ElementAt(3).diminutionPP();
                         monEntite.degatsInfliges(monEntite, Dino, 0);
                         formAtk.Close();
@@ -122,7 +138,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             {  
                 MessageBox.Show("+ 1.000.000 de PO, à quoi sert ton million si tu prend perpèt' ?");
 
-                while (!suivant)
+              /*  while (!suivant)
                 {
                     Console.WriteLine("Salle suivant ? (O/N)");
                     String saisie = Console.ReadLine().ToUpper();
@@ -136,6 +152,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                         Environment.Exit(0);
                     }
                 }
+              */
             }
             else
             {

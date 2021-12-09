@@ -18,6 +18,10 @@ namespace RPGCGUI
         public Game game;
         public Entite entitegui = new Entite();
         Monstre Dino = new Monstre();
+        public static string SetValueForText1 = "";
+        public static string SetValueForText2 = "";
+        public static string SetValueForText3 = "";
+        public static string SetValueForText4 = "";
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +37,12 @@ namespace RPGCGUI
         private void buttonAttaquant_Click(object sender, EventArgs e)
         {
             textBoxInterface.Text = "Vous avez choisi Clebs, l'Attaquant";
-            game.Play(new Entite("Clebs", 250, 35, 15, 15, entitegui.addMoveSet()));
+            Entite Clebs = new Entite("Clebs", 250, 35, 15, 15, entitegui.addMoveSet());
+            SetValueForText1 = Clebs.Capacites.ElementAt(0).ToString();
+            SetValueForText2 = Clebs.Capacites.ElementAt(1).ToString();
+            SetValueForText3 = Clebs.Capacites.ElementAt(2).ToString();
+            SetValueForText4 = Clebs.Capacites.ElementAt(3).ToString();
+            game.Play(Clebs);
         }
 
         private void buttonTank_Click(object sender, EventArgs e)
