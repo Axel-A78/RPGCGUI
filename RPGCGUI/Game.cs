@@ -73,8 +73,9 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                         {
                             //Affichage Attaque + calcules des degats + diminution PP
                             MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(0)}");
-                            monEntite.Capacites.ElementAt(0).diminutionPP();
                             monEntite.degatsInfliges(monEntite, Dino, 0);
+                            monEntite.Capacites.ElementAt(0).diminutionPP();
+
                         }
                         //Fermer la fenetre attaque
                         formAtk.Close();
@@ -90,8 +91,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                         else
                         {
                             MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(1)}");
-                            monEntite.Capacites.ElementAt(1).diminutionPP();
                             monEntite.degatsInfliges(monEntite, Dino, 1);
+                            monEntite.Capacites.ElementAt(1).diminutionPP();
                         }
 
                         formAtk.Close();
@@ -107,8 +108,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                         else
                         {
                             MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(2)}");
-                            monEntite.Capacites.ElementAt(2).diminutionPP();
                             monEntite.degatsInfliges(monEntite, Dino, 2);
+                            monEntite.Capacites.ElementAt(2).diminutionPP();
                         }
 
                         formAtk.Close();
@@ -124,8 +125,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                         else
                         {
                             MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(3)}");
-                            monEntite.Capacites.ElementAt(3).diminutionPP();
                             monEntite.degatsInfliges(monEntite, Dino, 3);
+                            monEntite.Capacites.ElementAt(3).diminutionPP();
                         }
                         formAtk.Close();
                     }
