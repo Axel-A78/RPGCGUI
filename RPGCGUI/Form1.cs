@@ -39,7 +39,7 @@ namespace RPGCGUI
         private void Form1_Load(object sender, EventArgs e)
         {
             SoundPlayer start = new SoundPlayer(@"C:\Users\donat\source\repos\Axel-A78\RPGCGUI\music\the-legend-of-zelda-nes-intro-main-theme.wav");
-            start.Play();
+            start.PlayLooping();
         }
 
         private void play(string file)//Fonction pour jouer les musiques
