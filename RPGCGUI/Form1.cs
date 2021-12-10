@@ -28,6 +28,9 @@ namespace RPGCGUI
         {
             InitializeComponent();
             game = new Game();
+            namePolyvalent.Text = "Sora";
+            nameTank.Text = "Blue Moon";
+            nameAttaquant.Text = "Clebs";
             
         }
 
@@ -77,6 +80,11 @@ namespace RPGCGUI
             SetValueForText4 = Clebs.Capacites.ElementAt(3).ToString();
             play("8-bit-orange-star-theme-advance-wars-dual-strike.wav");
             game.Play(Clebs);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
