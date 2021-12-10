@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -8,8 +9,7 @@ using System.Windows.Forms;
 namespace RPGCGUI // Note: actual namespace depends on the project name.
 {
     public class Game
-    {
-        
+    {        
         bool buttonListenerAtk1 = false;
         bool buttonListenerAtk2 = false;
         bool buttonListenerAtk3 = false;
@@ -136,8 +136,10 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             }
 
             if (victoire)
-            {  
-                MessageBox.Show("+ 1.000.000 de PO, à quoi sert ton million si tu prend perpèt' ?");
+            {
+                SoundPlayer music = new SoundPlayer(@"C:\Users\donat\source\repos\Axel-A78\RPGCGUI\music\ffi-victory.wav");
+                music.PlayLooping();
+                MessageBox.Show("+ 1.000.000 de PO, 5.000XP et rien d'autre.");
                 Application.Exit();
 
                 /*  while (!suivant)
@@ -158,6 +160,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             }
             else
             {
+                SoundPlayer music = new SoundPlayer(@"C:\Users\donat\source\repos\Axel-A78\RPGCGUI\music\a-quoi-sert-ton-million-si-tu-prends-perpet.wav");
+                music.PlayLooping();
                 MessageBox.Show("C'est perdu...");
                 Application.Exit();
                 
