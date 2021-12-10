@@ -23,6 +23,8 @@ namespace RPGCGUI
         {
             InitializeComponent();
             this.game = game;
+
+            //Recupère les valeurs des attaques du Form1
             attaque1.Text = Form1.SetValueForText1;
             attaque1.Font = new Font(attaque1.Font.FontFamily, 20);
 
