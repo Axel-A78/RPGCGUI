@@ -9,26 +9,23 @@ using System.Windows.Forms;
 namespace RPGCGUI // Note: actual namespace depends on the project name.
 {
     public class Game
-    {        
+    {       
+        //Listener des btn d'attaque
         bool buttonListenerAtk1 = false;
         bool buttonListenerAtk2 = false;
         bool buttonListenerAtk3 = false;
         bool buttonListenerAtk4 = false;
-       
+       //getters & setters
         public bool ButtonListenerAtk1 { get => buttonListenerAtk1; set => buttonListenerAtk1 = value; }
         public bool ButtonListenerAtk2 { get => buttonListenerAtk2; set => buttonListenerAtk2 = value; }
         public bool ButtonListenerAtk3 { get => buttonListenerAtk3; set => buttonListenerAtk3 = value; }
         public bool ButtonListenerAtk4 { get => buttonListenerAtk4; set => buttonListenerAtk4 = value; }
-        /*
-        public String Atk1 { get => atk1; set => atk1 = value; }
-        public String Atk2 { get => atk2; set => atk2 = value; }
-        public String Atk3 { get => atk3; set => atk3 = value; }
-        public String Atk4 { get => atk4; set => atk4 = value; }
-        */
 
+        //Lancement du jeu 
         public void Play(Entite monEntite)
         {
-
+            //Instanciation du monstre
+            // ce sera au hasard par la suite 
             Monstre m = new Monstre();
             Monstre Dino = new Monstre("Dino", 500, 10, 20, 5, m.addMoveSet(), "Dinosaure grrrrr !!");
 
@@ -37,7 +34,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 
             
 
-
+            //Tant que le monstre est pas mort on combat
             while (!Dino.EstMort())
             {
                 // Tour monstre
@@ -55,8 +52,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 //Tour du Personnage
                MessageBox.Show(String.Join(Environment.NewLine, monEntite));
 
+                //Phase de selections des attaques
                 Form formAtk = new Form2(this);
-
 
                 while (buttonListenerAtk1 == false && buttonListenerAtk2 == false && buttonListenerAtk3 == false && buttonListenerAtk4 == false)
                 {
@@ -65,17 +62,21 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
 
                     if (buttonListenerAtk1 == true)
                     {
+                        //Si l'attaque possede un id en +, c'est un attaque de changement de stats
                         if (monEntite.Capacites.ElementAt(0).IdStat != 0)
                         {
+                            //Changement stats + Diminution PP
                             monEntite.ChgtStat(monEntite, Dino, 0);
                             monEntite.Capacites.ElementAt(0).diminutionPP();
                         }
                         else
                         {
+                            //Affichage Attaque + calcules des degats + diminution PP
                             MessageBox.Show($"{monEntite.Nom}  utilise : {monEntite.Capacites.ElementAt(0)}");
                             monEntite.Capacites.ElementAt(0).diminutionPP();
                             monEntite.degatsInfliges(monEntite, Dino, 0);
                         }
+                        //Fermer la fenetre attaque
                         formAtk.Close();
                     }
 
@@ -135,6 +136,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 buttonListenerAtk4 = false;
             }
 
+            //Si victoire==true on joue une musique de victoire + message puis on quitte l'app.
             if (victoire)
             {
                 SoundPlayer music = new SoundPlayer(@"C:\Users\donat\source\repos\Axel-A78\RPGCGUI\music\ffi-victory.wav");
@@ -142,7 +144,10 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                 MessageBox.Show("+ 1.000.000 de PO, 5.000XP et rien d'autre.");
                 Application.Exit();
 
-                /*  while (!suivant)
+                /*  
+                 *  Système de montée d'étages. 
+                 *  
+                 *  while (!suivant)
                   {
                       Console.WriteLine("Salle suivant ? (O/N)");
                       String saisie = Console.ReadLine().ToUpper();
@@ -158,6 +163,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
                   }
                 */
             }
+            //Si on perd "cest perdu...' + Maes qui lache sa punchline
             else
             {
                 SoundPlayer music = new SoundPlayer(@"C:\Users\donat\source\repos\Axel-A78\RPGCGUI\music\a-quoi-sert-ton-million-si-tu-prends-perpet.wav");

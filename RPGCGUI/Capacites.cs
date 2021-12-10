@@ -40,7 +40,7 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         //Methodes
         public void diminutionPP()
         {
-            this.pointDePouvoir--;
+                this.pointDePouvoir--;
         }
         public override string ToString()
         {

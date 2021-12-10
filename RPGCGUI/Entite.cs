@@ -17,6 +17,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         private int vitesse;
         protected bool estMort = false;
         private List<Capacite> capacites = new List<Capacite>();
+        private static Random rng = new Random();
+
 
         // Getters setters
         public String Nom { get => nom; set => nom = value; }
@@ -42,25 +44,38 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
         }
 
         //Methodes
+
+        //Degats infligés par notre personnage
         public void degatsInfliges(Entite atk, Entite def, int id)
         {
-            double degatsDec = atk.attaque * atk.Capacites.ElementAt(id).PointDeDegat / def.defense - (def.vitesse * (25 / 100));
-            Math.Round(degatsDec, 2);
-            int degats = (int)degatsDec;
-            def.LoseHP(degats);
-           MessageBox.Show(atk.nom + "(" + atk.pointDeVie + ")" + "attaque : " + def.nom + "\r\n" +
-                            def.nom + " a perdu " + degats + " points de vie. \r\n " +
-                            "Il reste : " + def.pointDeVie + " points de vie à " + def.nom);
-           
-            if (def.estMort)
+
+            if (atk.Capacites.ElementAt(id).PointDePouvoir > 0)
             {
-                MessageBox.Show(def.nom + " est mort !");
+                double degatsDec = atk.attaque * atk.Capacites.ElementAt(id).PointDeDegat / def.defense - (def.vitesse * (25 / 100));
+                Math.Round(degatsDec, 2);
+                int degats = (int)degatsDec;
+                def.LoseHP(degats);
+                MessageBox.Show(atk.nom + "(" + atk.pointDeVie + ")" + "attaque : " + def.nom + "\r\n" +
+                                 def.nom + " a perdu " + degats + " points de vie. \r\n " +
+                                 "Il reste : " + def.pointDeVie + " points de vie à " + def.nom);
+
+                if (def.estMort)
+                {
+                    MessageBox.Show(def.nom + " est mort !");
+                }
+            }
+            else
+            {
+                def.LoseHP(0);
+                MessageBox.Show(atk.nom + "(" + atk.pointDeVie + ")" + "attaque : " + def.nom + "\r\n" +
+                                "Mais il ne lui reste plus de PP, dommage vous passez votre tour.");
             }
         }
-
+        //Monstre inflige des degats variables grace au random.
         public void degatsInfligesMonstre(Entite atk, Entite def)
         {
-            double degatsDec = atk.attaque * 80 / def.defense - (def.vitesse * (25 / 100));
+            int degatsMultipl = rng.Next(60, 120);
+            double degatsDec = atk.attaque * degatsMultipl  / def.defense - (def.vitesse * (25 / 100));
             Math.Round(degatsDec, 2);
             int degats = (int)degatsDec;
             def.LoseHP(degats);
@@ -95,8 +110,6 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             return $"| Nom : {nom} | PV : {pointDeVie} |\r\n Capacités : \r\n {String.Join(" \r\n ", capacites)}  ";
         }
 
-        private static Random rng = new Random();
-
         //Liste aléatoire de 4 attaques
         public List<Capacite> addMoveSet()
         {
@@ -109,6 +122,8 @@ namespace RPGCGUI // Note: actual namespace depends on the project name.
             capacites.Add(new Capacite(40, 0, "Miaule",4));
             capacites.Add(new Capacite(20, 0, "En garde",5));
             capacites.Add(new Capacite(20, 0, "Cavale"));
+            capacites.Add(new Capacite(0, 999, "Test0PP"));
+            capacites.Add(new Capacite(1, 999, "O.S"));
             var shuffledMoveSet = capacites.OrderBy(a => rng.Next()).ToList();
 
             for (int i = 0; i < Capacites.Count; i++)

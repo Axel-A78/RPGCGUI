@@ -15,11 +15,11 @@ namespace RPGCGUI
     public partial class Form1 : Form
     {
 
-
+        //Class game + Objet Entite
         public Game game;
         public Entite entitegui = new Entite();
-        Monstre Dino = new Monstre();
 
+        //Variables pour passer des string recuperer au moment du clic, dans le form2
         public static string SetValueForText1 = "";
         public static string SetValueForText2 = "";
         public static string SetValueForText3 = "";
@@ -27,7 +27,9 @@ namespace RPGCGUI
         public Form1()
         {
             InitializeComponent();
+            //Objet game
             game = new Game();
+            //Affichage des noms dans les labels
             namePolyvalent.Text = "Sora";
             nameTank.Text = "Blue Moon";
             nameAttaquant.Text = "Clebs";
@@ -46,6 +48,7 @@ namespace RPGCGUI
             simpleSound.PlayLooping();
         }
 
+        //Btn de sélection des personnages + création des entités choisies.
         private void ChooseAtk_Click(object sender, EventArgs e)
         {
             DisplayChoice.Text = "Vous avez choisi Clebs, l'Attaquant";
@@ -82,6 +85,7 @@ namespace RPGCGUI
             game.Play(Clebs);
         }
 
+        //
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
